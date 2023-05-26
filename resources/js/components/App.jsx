@@ -14,7 +14,7 @@ const App = () => {
     if (data) {
       console.log(data);
       // mengisi data ke variable user
-      // setUser(data.user);
+      setUser(data.user);
     }
   };
 
@@ -24,18 +24,22 @@ const App = () => {
       <h1>Halao React Laravel</h1>
       <h2>ini adalah halaman utama react</h2>
       <table border={1}>
-        <tr>
-          <td>Nama</td>
-          <td>Email</td>
-        </tr>
-        {/* {user.length > 0 && user.map((val, key) => {
-          return (
-            <tr key={key}>
-              <td>{val.name}</td>
-              <td>{val.email}</td>
-            </tr>
-          )
-        }) } */}
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>eMail</th>
+          </tr>
+        </thead>
+        <tbody>
+          {user && user.map((item, key) => {
+            return (
+              <tr key={key}>
+                <td>{item.name}</td>
+                <td>{item.email}</td>
+              </tr>
+            )
+          })}
+        </tbody>
       </table>
     </div>
   )
